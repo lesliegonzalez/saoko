@@ -75,3 +75,16 @@ function factorial(num){
 }
 
 console.log ("Factorial de 5= " + factorial(5));
+
+//++++++++++ Rest  parameters +++++++++++++++++
+//(parameters) => return ; SI ES UN DATO
+// (parameters) => {     SI ES MÁS DE UN DATO
+//    return data
+//}
+function sum(a, b, ...resto){
+    let suma = a+b;
+    resto.forEach(dato => {suma+= dato});
+    return suma;
+}
+
+console.log("El resultado de sumar varios números es: " + sum(2,5,7,3));

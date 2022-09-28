@@ -194,6 +194,7 @@ if (numeroMes === 12 || numeroMes === 1 || numeroMes === 2) {
     mes = "No se encontro";
   }
 
+  //-------------
 
   let oneline = true;
   let active = true;

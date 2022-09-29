@@ -127,16 +127,140 @@ console.log(countE("Pepe Pecas Pica Papas pero"));
 
 console.log(Array.from(`pepe pecas pica papas pero`).map(element=> (element == "e") * 1 ).reduce((a,b)=>a+b));
 
+//----
+const getHowMany = (str, ch) => str .split("").filter(elemento => elemento === ch).length
+//Es lo  mismo de arriba
+`pepe pecas pica papas pero`.split("").filter(elemento => elemento === 'p').length
+/**Explicación procedimiento:
+ * `pepe pecas pica papas pero`.split("")  // Separa el texto en un arreglo
+ * filter(elemento => elemento === 'p')  //Nuevo arreglo, que cumpla la condición.
+ * .length  //Obtiene la cantidad de elementos de un arreglo.
+ */
+`Pepe pecas pica Papas pero`.match(/P/gi).length;  //Solución más fácil a lo de arriba
+(busca = `Pepe pecas pica Papas pero`.match(/P/gi))
+    ? busca.length : 0;
 
 
-//---------------------MÍO-----------------------------------
-console.log('##### De la palabra "Pepe Pecas Pica Papas" saber cuantas "e" tiene ######');
+//++++++++++++++++++++++++++ CICLO FOR+++++++++++++++++++++++++++
+console.log("------------CICLO FOR-------------");
+/**
+ * Sintáxis:
+ *      for (inicio; condición; expresiónFinal) {
+ *          instrucciones; 
+ *      }
+ * 
+ * 1-inicio
+ * 2-condición (si es verdadera)
+ * 3- instrucciones (si es verdadera)
+ * 4- expresión final
+ * 
+ */
 
-const pepe = ["pepe", "pecas", "pica", "papas"];
+for (let i=0; i<= 10; i++){ //opciones de expresión final:  i=i+1  i++  ++i  i+=1
+    console.log("El valor de la iteración es: " + i);
+    console.log("El valor de la iteración es: " + (i+1));
+}
 
-function cantE(){
-    for (let i = 0; i < pepe.length; i++) {
-        const element = pepe.split[i];
-        
+console.log("-------- FOR con CONTINUE y BREAK--------");
+/**
+ * La instrucción Break rompe el ciclo for, no importa el número de iteración en la que se encuentre.
+ * Continue interrumpe la iteración en curso y continúa a la siguiente iteración.
+ */
+
+
+const ch18 = ["Abelardo", "Audrey", "Sharon", "Leslie", "Pato Lucas", "Abdí", "Jesús"];
+/* for(let i= 0; i < ch18.length; i++){
+    if(ch18[i] === "Pato Lucas"){
+        console.warn("Esta persona no pertenece a la CH18: " + ch18[i]);
+        break;
+    }
+    console.log("Integrante de CH18: " + ch18[i]);
+}
+ */
+for(let i= 0; i < ch18.length; i++){
+    if(ch18[i] !== "Pato Lucas"){
+        continue;
+    }
+    console.warn("Esta persona no pertenece a la CH18: " + ch18[i]);
+}
+
+
+console.log("-------- MATRICES --------");
+// const array = [ [] , [] , [] ];
+
+const generation = [
+    ["Abelardo", "Audrey", "Sharon", "Leslie", "Pato Lucas", "Abdí", "Jesús"], 
+    ["Alejandro", "Karen", "Raúl", "El bromas", "Mariana"], 
+    ["Emiliano", "El bromas", "Jonathan", "Esteban", "El bromas"]
+];
+
+//Imprimir a cada integrante de cada cohorte en Generation
+for(let i = 0; i< generation.length; i++){
+    console.log(`Los integrantes de la cohorte ${i+1} son:`)
+    for(let j = 0; j< generation[i].length; j++){
+        console.log(generation[i][j]);
     }
 }
+console.log("Próxima presentación: " + generation[1][2]); // [fila] [columna] Apunta a Raúl 
+
+//Encontrar a "El bromas" e indicar con una alerta la cohorte donde se encuentra
+continua_buscando: //El label siempre debe ir pegado al for
+for(let i=0; i<generation.length;i++){
+    for(let j=0; j<generation[i].length;j++){
+        if (generation[i][j] === 'El Bromas'){
+            console.warn(`El bromas se encuentra en la corte ${i+1} en la posición ${j+1}`)
+            continue continua_buscando
+        }
+        console.log(`Numero de iteración ${i}-${j}`)
+    }
+}
+  
+//++++++++++++++++++++++++++ CICLO WHILE +++++++++++++++++++++++++++
+console.log("-------- MATRICES --------");
+/**
+ * Sintáxis:
+ *      while (condición){
+ *          instrucción;
+ *      }
+ */
+//Encontrar un número que pensé del 1 al 10
+
+/* let findNumber = true;
+let number = 1;
+while(findNumber){
+    if (confirm(`¿El número es ${number}?`)){
+        findNumber= false ;
+        alert (`Fantástico, tu número es el ${number}`)
+    }
+    else if(number>= 10){
+        findNumber = false;
+        alert(`Humano, ya vete, no sabes jugar`);
+    }
+    number++;
+} */
+
+/* let number = 1;
+while(confirm(`¿El número es ${number}?`)){
+    number++;
+    if (number > 10){
+        alert (`Fantástico, tu número es el ${number}`)alert(`Humano, ya vete, no sabes jugar`);
+        break;
+    }    
+}
+alert(`Fantástico, tu número es el ${number}`); */
+
+let bandera = false;
+while(bandera){
+    console.log("Mensaje dentro del ciclo while");
+}
+
+do{
+    console.log("Mensaje dentro del do-while")
+} while(bandera);
+
+//¿Cuántas veces se imprime en consola y cuál es el valor final? 7 y 11
+contador= 3;
+while(contador++<10){
+    console.log("Valor de contador: " + contador);
+}
+console.log("Valor final de contador: " + contador);

@@ -4,6 +4,8 @@ console.log("Sesión JS06 DOM");
 //encontrarPorTagName();
 //encontrarPorClase();
 encontrarPorSelector();
+cambiarEstilo();
+crearElemento();
 
 function encontrarPorId() {
     // Obtener el objeto a través de su ID
@@ -17,7 +19,7 @@ function encontrarPorId() {
 function encontrarPorTagName(){
     //Obtenemos los objetos que cumplan con el tag indicado
     //Entrega una colección con los elementos encontrados. En plural.
-    const elements = document.getElementsByTagName("p");
+    let elements = document.getElementsByTagName("p");
     console.log("Elementos econtrados: "+ elements.length);
 
     //Obtenemos el elemento del índice 1;
@@ -40,4 +42,16 @@ function encontrarPorSelector(){
     console.log("Elementos encontrados: " + elements.length);
 
     elements[0].innerHTML = "ganas de comprar";
+}
+
+function cambiarEstilo(){
+    const elements = document.querySelectorAll("p>.color");
+    elements[0].style.color="red";
+    elements[1].style.color="pink"; //Para que todos los elementos del <p> se cambien de color, hay que iterar con un for.
+}
+
+function crearElemento(){
+    const nuevoElemento = document.createElement("p");
+    nuevoElemento.innerHTML = `Este es un <strong class="color">nuevo</strong> párrafo`; //Para que la palabra "nuevo" cambie de color, hay que intercambiar el llamado de la fun cambiarEstilo y crearElemento, que están al inicio de este script
+    document.getElementById("titulo").appendChild(nuevoElemento);
 }

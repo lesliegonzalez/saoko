@@ -57,7 +57,7 @@ fetch("https://reqres.in/api/users?delay=3")
     .then (msj => console.log("Retorno del then anterior " + msj)) //Sólo un ejemplo de cómo se pueden anidar más .then
     //Se activará el método .catch si hubiera un problema con la url, y lo mostrará en consola
     .catch(error => {
-        //Procesanso el error que suceda en el fetch y lkos then de arriba
+        //Procesanso el error que suceda en el fetch y los then de arriba
         console.log(error)
     }); //Adentro del paréntesis debe ir una funcióncallback/ función flecha. Este método cachará lo errores  del thn y fetch
 }

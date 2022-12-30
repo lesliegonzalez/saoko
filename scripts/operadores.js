@@ -9,7 +9,7 @@ let suma = 3 + 4;
 console.log("El valor de suma: " + suma);
 
 //----------Operadores de asignación ---------
-let numero;
+let numero; 
 numero = 10;
 numero += 10;
 numero -= 5;
